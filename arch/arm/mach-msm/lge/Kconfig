@@ -1,0 +1,244 @@
+config MACH_LGE
+	bool
+
+menu "LGE Device-Specific Changes"
+
+config LGE_MACH_ENVT2_CHECK_HW_REV
+	depends on ARCH_QSD8X50
+	depends on MSM_SOC_REV_NONE
+	depends on MSM_STACKED_MEMORY
+	default n
+	bool "enV Touch2 Check HW Rev"
+	help
+           Support for the enV Touch2 board.
+
+# LGE_CHANGE_S [eklee.lee@lge.com]
+config LGE_HEADSET
+	depends on ARCH_QSD8X50
+	default y
+	bool "enV Touch2 Headset"
+	help
+           Support for the enV Touch2 board.
+# LGE_CHANGE_S [eklee.lee@lge.com] 
+
+config LGE_CAMERA_FLASH
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera Flash"
+	help
+           Support for the enV Touch2 board.
+
+
+config LGE_CAMERA_AUTO_FOCUS
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera Auto Focus"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_CAMERA_DEBUG
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera Debug"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_CAMERA_QCT_SBA
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera QCT SBA"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_CAMERA_SOF_OFF 
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera QCT SOF Disable"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_CAMERA_QCT_FREEZE_FIX 
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 Camera QCT Freeze Fix"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_INPUT_SENSOR
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 input sensor"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_SENSOR_GP2AP
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 sensor gp2ap"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_SENSOR_KR3DH
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 sensor kr3dh"
+	help
+           Support for the enV Touch2 board.
+
+config LGE_SENSOR_AK8973
+	depends on ARCH_QSD8X50
+	default n
+	bool "enV Touch2 sensor ak8973"
+	help
+           Support for the enV Touch2 board.
+           
+# LGE_CHANGE_S [eklee.lee@lge.com] 2010-03-19, LG_FW_AUDIO_SUBSYSTEM
+config LGE_AUDIO_AMP_LM49250
+	bool "Audio AMP LM49250"
+	depends on LGE_MACH_ENVT2
+	default y
+	help
+	  LM49250 audio Amplifier
+# LGE_CHANGE_S [eklee.lee@lge.com] 2010-03-19, LG_FW_AUDIO_SUBSYSTEM
+
+config LGE_USE_OEM_RAPI
+	bool "Support LGE OEM RAPI"
+	default y
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE remote api functions
+
+config LGE_CAMERA_CONFIG
+	bool "Support LGE CAMERA HW configuration"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE CAMERA HW configuration
+
+config LGE_CAMERA_DEBUG
+	bool "Support LGE CAMERA debug"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE CAMERA debug
+
+config LGE_CAMERA_USE_GPIO_I2C
+	bool "Support LGE CAMERA I2C"
+	default n
+	help
+	  LGE CAMERA I2C
+
+config LGE_CAM_LOCKUP_TEMP
+	bool "Support LGE CAMERA LOCKUP TEMP"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE CAMERA LOCKUP TEMP
+
+config LGE_AUDIO_TUNNING
+	bool "Support LGE AUDIO TUNNING"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE AUDIO TUNNING
+
+config LGE_AUDIO_CAD_ADD
+	bool "Support LGE AUDIO CAD"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE AUDIO CAD
+
+config LGE_AUDIO_SUBSYSTEM
+	bool "Support LGE AUDIO LM49250 AMP"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE AUDIO LM49250 AMP
+
+config LGE_AUDIO_PWM_VIBRATOR
+	bool "Support LGE AUDIO PWM VIBRATOR"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE AUDIO PWM VIBRATOR IN APPLICATION
+
+config LGE_AUDIO_HEADSET
+	bool "Support LGE AUDIO EARJACK DETECTION"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE AUDIO EARJACK DETECTION
+
+config LGE_AUDIO_HEADSET_PROTECT
+	bool "Support LGE AUDIO HEADSET PROTECTION"
+	default n
+	depends on LGE_AUDIO_HEADSET
+	help
+	  LGE AUDIO HEADSET PROTECTION
+	  
+config LGE_AUDIO_MVS_PKT_LOOPBACK
+	bool "Support CONFIG_LGE_AUDIO_MVS_PKT_LOOPBACK"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  CONFIG_LGE_AUDIO_MVS_PKT_LOOPBACK
+
+config LGE_ERS
+	tristate "Support LGE ERS system"
+	default n
+	depends on LGE_MACH_ENVT2
+	depends on LGE_RAM_CONSOLE
+	help
+	  LGE error reporting system
+
+config LGE_HANDLE_MODEM_CRASH
+	tristate "Support LGE Modem Crash Handler"
+	default n
+	depends on LGE_MACH_ENVT2
+	depends on LGE_RAM_CONSOLE
+	help
+	  LGE modem crash handler
+
+config LGE_RAM_CONSOLE
+	bool "Support kmsg save in the ram console area"
+	default n
+	depends on LGE_MACH_ENVT2
+	help
+	  Support kmsg save
+
+config LGE_RAM_CONSOLE_CLEAN
+	bool "Clean ram console"
+	default n
+	help
+	  Clean ram console when powered off normally
+
+config LGE_PROC_COMM
+	bool "LGE added proc comm"
+	depends on LGE_MACH_ENVT2
+	default n
+	help
+	  LGE added proc_comm
+
+menu "LGE specific patches"
+	depends on LGE_MACH_ENVT2
+
+
+
+# LGE_CHANGE [dojip.kim@lge.com] 2010-08-17
+config LGE_RTC_INTF_ALARM_SYNC
+	bool "LGE alarm sync (fix the elapsed time)"
+	default n
+	help
+	  This patch is alarm sync to fix the wrong elapsed time 
+
+# LGE_CHANGE [dojip.kim@lge.com] 2010-09-05, avoid the rooting via hotplug
+config LGE_BLOCK_HOTPLUG
+	bool "LGE block the hotplug"
+	default n
+	help
+	  Android doesn't need a hotplug. So, block the hotplug to avoid the rooting
+
+endmenu
+
+endmenu

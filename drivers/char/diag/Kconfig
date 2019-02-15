@@ -1,0 +1,109 @@
+menu "Diag Support"
+
+config DIAG_CHAR
+	tristate "char driver interface and diag forwarding to/from ARM9"
+	default m
+	depends on USB_ANDROID_DIAG || USB_FUNCTION_DIAG
+	depends on ARCH_MSM
+	help
+	 Char driver interface for diag user space and diag-forwarding to modem ARM and back.
+
+config LGE_DIAG_KERNEL_SERVICE
+	bool "Support LGE diag kernel service"
+	default y
+	depends on LGE_MACH_ENVT2
+	help
+	  LGE diag kernel service enable
+
+config LGE_DIAG_TESTMODE
+	bool "Support LGE diag TESTMODE"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE diag TESTMODE enable
+
+config LGE_CAMERA_TESTMODE
+	bool "Support LGE CAMERA TESTMODE"
+	default n
+	depends on LGE_DIAG_TESTMODE
+	help
+	  LGE CAMERA TESTMODE
+
+config LGE_AUDIO_TESTMODE
+	bool "Support LGE AUDIO TESTMODE"
+	default n
+	depends on LGE_DIAG_TESTMODE
+	help
+	  LGE AUDIO TESTMODE
+
+config LGE_AUDIO_TUNE_TOOL
+	bool "Support LGE AUDIO tunning"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE AUDIO tunning tool
+
+config LGE_APPS_FACTORY_RESET
+	bool "Support LGE factory reset"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE Factory reset for applications
+
+config LGE_MTD_DIRECT_ACCESS
+	bool "Support LGE factory reset MTD access"
+	default n
+	depends on LGE_APPS_FACTORY_RESET
+	help
+	  LGE MTD access for Factory reset
+
+config LGE_DIAG_WMC
+	bool "Support LGE diag WMC"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE diag WMC enable
+
+config LGE_ATS_ETA_MTC
+	bool "Support LGE ETA and MTC service"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE ETA and MTC
+
+config LGE_ATS_ETA_MTC_KEY_LOGGING
+	bool "Support LGE ETA and MTC key, touch logging service"
+	default n
+	depends on LGE_ATS_ETA_MTC
+	help
+	  send key and touch logging data to a tool
+
+config LGE_ATS_ETA_MTC_KEY_LOGGING_JIFFIES
+	bool "Support LGE ETA and MTC key, touch logging timer"
+	default n
+	depends on LGE_ATS_ETA_MTC_KEY_LOGGING
+	help
+	  send key and touch logging timer data to a tool
+
+config LGE_DIAG_UTS
+	bool "Support LGE UTS and UDM service"
+	default n
+	depends on LGE_DIAG_KERNEL_SERVICE
+	help
+	  LGE UTS and UDM
+
+config LGE_DIAG_UTS_KEYPRESS
+	bool "Support LGE UTS and UDM keypress test"
+	default n
+	depends on LGE_DIAG_UTS
+	help
+	  LGE UTS and UDM keypress test
+
+config LGE_DIAG_UTS_SCREEN_SHOT
+	bool "Support LGE UTS and UDM screen capture"
+	default n
+	depends on LGE_DIAG_UTS
+	help
+	  LGE UTS and UDM screen capture
+
+endmenu
